@@ -1,0 +1,161 @@
+---
+import ModuleCard from './ModuleCard.astro';
+
+const modules = [
+  {
+    n: '1',
+    title: 'Planlegg strukturen',
+    depth: '0 m · overflaten',
+    problem: 'Dagens meny blander ulike brukerbehov (forelder vs. konkurransedeltaker).',
+    tech: 'Ingen kode ennå — penn og papir, eller Figma/Miro.',
+    oppgave: 'Kartlegg hvem som besøker siden og hva de trenger. Tegn opp et sitemap for den nye siden.',
+    leveranse: 'Et sitemap og en kort begrunnelse for hver hovedside.',
+    hints: [
+      'Tenk minst to besøkstyper: en forelder som vurderer et kurs, og en konkurransedeltaker som leter etter resultater. Skriv ned hva <em>hver</em> av dem trenger å finne på under 10 sekunder.',
+      'Penn og papir eller et whiteboard-verktøy fungerer fint — dette steget handler om å tenke, ikke å bygge.',
+      'Still spørsmålet «hvorfor ligger denne siden i menyen?» for hver eneste lenke dere tegner opp.',
+    ],
+    links: [
+      { label: 'Figma (gratis)', href: 'https://www.figma.com/' },
+      { label: 'Miro (gratis)', href: 'https://miro.com/' },
+    ],
+    open: true,
+  },
+  {
+    n: '2',
+    title: 'Bygg sidene og lenkene',
+    depth: '1 m',
+    problem: 'Ødelagte og inkonsekvente lenker mellom topp- og bunnmeny.',
+    tech: 'Next.js (fil-basert routing), TypeScript, Git/GitHub.',
+    oppgave: 'Sett opp prosjektet, lag hver side som en egen fil, og koble sammen navigasjon i topp og bunn slik at de faktisk stemmer overens.',
+    leveranse: 'En fungerende side med alle lenker klikkbare og korrekte, committet til GitHub.',
+    hints: [
+      'Start med <code>npx create-next-app@latest</code> og velg TypeScript + Tailwind CSS + App Router når du blir spurt.',
+      'I App Router blir mappestrukturen i <code>app/</code> selve navigasjonen — en mappe <code>app/pamelding/page.tsx</code> gir automatisk ruten <code>/pamelding</code>.',
+      'Lag <em>ett</em> sted (f.eks. en <code>navLinks</code>-liste) som både header og footer henter menyen fra — da kan de aldri komme ut av synk igjen.',
+      'Bruk <code>&lt;Link&gt;</code>-komponenten fra Next.js i stedet for vanlig <code>&lt;a&gt;</code> for intern navigasjon.',
+      'Commit ofte, med korte forklarende meldinger — det gjør det lettere å vise fremgang og gå tilbake om noe går galt.',
+    ],
+    links: [
+      { label: 'Next.js: Routing', href: 'https://nextjs.org/docs/app/building-your-application/routing' },
+      { label: 'Next.js: Link-komponenten', href: 'https://nextjs.org/docs/app/api-reference/components/link' },
+      { label: 'Git-basics (git-scm.com)', href: 'https://git-scm.com/doc' },
+    ],
+  },
+  {
+    n: '3',
+    title: 'Design knapper og layout',
+    depth: '2 m',
+    problem: 'Tre konkurrerende CTA-er på forsiden, og en rotete sponsorseksjon.',
+    tech: 'Tailwind CSS (Flexbox, Grid).',
+    oppgave: 'Velg én hovedhandling per side og bygg et visuelt hierarki rundt den. Gi sponsorlogoene konsekvent formatering.',
+    leveranse: 'En forside med tydelig CTA-hierarki, og en sponsorseksjon som ser ryddig ut på alle skjermstørrelser.',
+    hints: [
+      'Regel: kun <strong>én</strong> knapp per seksjon skal ha den mest iøynefallende fargen. Resten blir sekundære (f.eks. omriss/outline-stil).',
+      '<code>flex</code> er best for én rad/kolonne med elementer (som en knapperad). <code>grid</code> er best når du trenger rader <em>og</em> kolonner samtidig (som et sponsorgalleri).',
+      'Lek deg først i spillene under — de gjør Flexbox og Grid konkret på 15 minutter hver.',
+      'Sett en fast høyde/bredde på sponsor-logoene og bruk <code>object-contain</code>, så ser alle logoer ryddige ut selv om originalbildene har ulik størrelse.',
+    ],
+    links: [
+      { label: 'Flexbox Froggy (spill)', href: 'https://flexboxfroggy.com/' },
+      { label: 'CSS Grid Garden (spill)', href: 'https://cssgridgarden.com/' },
+      { label: 'Tailwind: Flexbox', href: 'https://tailwindcss.com/docs/flex' },
+      { label: 'Tailwind: Grid', href: 'https://tailwindcss.com/docs/grid-template-columns' },
+    ],
+  },
+  {
+    n: '4',
+    title: 'Gjør bildene raskere',
+    depth: '4 m',
+    problem: 'Tunge, ukomprimerte bilder gjør at siden bruker unødvendig lang tid på å åpne seg.',
+    tech: 'Next.js sin innebygde Image-komponent.',
+    oppgave: 'Mål siden i Lighthouse før dere optimaliserer, bytt ut alle bilder med optimalisert versjon, og mål igjen.',
+    leveranse: 'En før/etter-rapport med konkrete tall (lastetid, filstørrelse, Lighthouse-score).',
+    hints: [
+      'Ta et Lighthouse-mål <em>før</em> dere endrer noe — uten det tallet kan dere ikke bevise forbedringen.',
+      'Bytt vanlig <code>&lt;img&gt;</code> med <code>&lt;Image&gt;</code> fra <code>next/image</code> — den komprimerer og tilpasser bildestørrelsen automatisk.',
+      'Husk å sette <code>width</code>, <code>height</code> (eller <code>fill</code>) på bildet, ellers klager Next.js.',
+      'Åpne Nettverk-fanen i DevTools, filtrer på «Img», og se totalt antall MB som lastes — det er tallet dere skal vise frem i pitchen.',
+    ],
+    links: [
+      { label: 'Next.js: Image-komponenten', href: 'https://nextjs.org/docs/app/api-reference/components/image' },
+      { label: 'Lighthouse-oversikt', href: 'https://developer.chrome.com/docs/lighthouse/overview/' },
+      { label: 'DevTools: Nettverksfanen', href: 'https://developer.chrome.com/docs/devtools/network' },
+    ],
+  },
+  {
+    n: '5',
+    title: 'Lag et system for innhold',
+    depth: '6 m · dypeste punktet',
+    problem: 'Klubben kan ikke oppdatere siden selv i dag — Squarespace er ikke laget for strukturert innhold.',
+    tech: 'Sanity (skjema for trenere, nyheter, arrangementer), TypeScript-typer for innholdet.',
+    oppgave: 'Design en datamodell, koble Sanity til Next.js, og hent innhold dynamisk inn på riktige sider.',
+    leveranse: 'En fungerende nyhetsside og trenerside der innholdet kommer fra CMS, ikke er hardkodet.',
+    hints: [
+      'Dette er den mest krevende modulen og tar gjerne lengre tid enn de andre. Ta den etter modul 2–4.',
+      'Start smått: lag ett skjema (f.eks. <code>trener</code> med navn, bilde, bio) før dere legger til nyheter og arrangementer.',
+      'Sanity kan generere TypeScript-typer automatisk ut fra skjemaet ditt — bruk det i stedet for å skrive typene for hånd.',
+      'GROQ er Sanitys spørrespråk — det ligner litt på JSON. Lek deg i Sanitys Vision-verktøy (i Studio) før du skriver spørringen i koden.',
+    ],
+    links: [
+      { label: 'Sanity: Kom i gang', href: 'https://www.sanity.io/docs/getting-started-with-sanity' },
+      { label: 'Sanity + Next.js-guide', href: 'https://www.sanity.io/docs/nextjs' },
+      { label: 'GROQ-spørrespråk', href: 'https://www.sanity.io/docs/groq' },
+    ],
+  },
+  {
+    n: '6',
+    title: 'Gjør siden synlig i søk',
+    depth: '8 m',
+    problem: 'Generisk meta-beskrivelse i dag, ingen strukturert data.',
+    tech: 'Next.js sin metadata-API, eventuelt strukturert data (JSON-LD).',
+    oppgave: 'Skriv riktige titler og beskrivelser per side, og legg til strukturert data for lokasjon og arrangementer.',
+    leveranse: 'En Lighthouse SEO-score dere kan vise frem, sammenlignet med dagens side.',
+    hints: [
+      'Hver side kan eksportere sitt eget <code>metadata</code>-objekt (title + description) — gjør dette spesifikt, ikke generisk («Meld deg på stupeskolen for barn 6–12 år i Bergen» slår «Bergens beste stupeklubb»).',
+      'JSON-LD er strukturert data Google leser direkte — for en klubb er <code>SportsClub</code>/<code>LocalBusiness</code>-typen på schema.org et godt utgangspunkt.',
+      'Kjør Lighthouse sin SEO-fane på både den gamle siden og den nye — differansen er tallet dere skal vise frem.',
+    ],
+    links: [
+      { label: 'Next.js: Metadata-API', href: 'https://nextjs.org/docs/app/building-your-application/optimizing/metadata' },
+      { label: 'schema.org', href: 'https://schema.org/' },
+      { label: 'Google: Strukturert data', href: 'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data' },
+    ],
+  },
+  {
+    n: '7',
+    title: 'Koble på et påmeldingsskjema',
+    depth: '10 m · stupebrettet',
+    problem: 'Ingen reell funksjonalitet utover statisk innhold i dag.',
+    tech: 'Next.js API-ruter, Resend (e-post) eller Supabase (database).',
+    oppgave: 'Bygg et skjema for påmelding til stupeskolen som faktisk sender data et sted, med validering og TypeScript-typer for dataene.',
+    leveranse: 'Et fungerende skjema, testet med ekte innsending.',
+    hints: [
+      'En API-rute i Next.js er bare en fil, f.eks. <code>app/api/pamelding/route.ts</code>, som eksporterer en <code>POST</code>-funksjon.',
+      'Valider input både i skjemaet (så brukeren får rask tilbakemelding) og i API-ruten (så dere aldri stoler blindt på det som kommer fra klienten).',
+      'Resend er raskest å komme i gang med om dere bare vil ha en e-post; Supabase gir en ordentlig database dere også kan liste opp påmeldinger fra.',
+      'Test alltid med en <em>ekte</em> innsending til slutt — en skjerm som sier «Sendt!» uten at noe faktisk skjedde bak kulissene teller ikke.',
+    ],
+    links: [
+      { label: 'Next.js: Route Handlers', href: 'https://nextjs.org/docs/app/building-your-application/routing/route-handlers' },
+      { label: 'Resend docs', href: 'https://resend.com/docs' },
+      { label: 'Supabase docs', href: 'https://supabase.com/docs' },
+    ],
+  },
+];
+---
+
+<section id="modulene" class="px-6 py-20">
+  <div class="mx-auto max-w-4xl">
+    <p class="section-kicker text-center">Dykket, steg for steg</p>
+    <h2 class="section-heading mt-2 text-center">De 7 modulene — fra overflaten til stupebrettet</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-pool-300">
+      Klikk på en modul for å åpne den. Hver modul er et nytt dybdenivå, med oppgave, leveranse og
+      konkrete hint — dere dykker litt dypere for hver modul dere fullfører.
+    </p>
+
+    <div class="mt-12 space-y-4">
+      {modules.map((m) => <ModuleCard {...m} />)}
+    </div>
+  </div>
+</section>

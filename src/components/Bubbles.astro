@@ -1,0 +1,26 @@
+---
+interface Props {
+  count?: number;
+}
+
+const { count = 14 } = Astro.props;
+
+const bubbles = Array.from({ length: count }, (_, i) => ({
+  left: Math.round(((i * 37) % 100) + Math.random() * 6),
+  size: Math.round(4 + Math.random() * 9),
+  duration: Math.round(12 + Math.random() * 14),
+  delay: Math.round(Math.random() * 20),
+  drift: Math.round(Math.random() * 50 - 25),
+}));
+---
+
+<div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+  {
+    bubbles.map((b) => (
+      <span
+        class="bubble absolute rounded-full border border-white/10 bg-white/5"
+        style={`left:${b.left}%; width:${b.size}px; height:${b.size}px; bottom:-40px; animation-duration:${b.duration}s; animation-delay:-${b.delay}s; --drift:${b.drift}px;`}
+      />
+    ))
+  }
+</div>

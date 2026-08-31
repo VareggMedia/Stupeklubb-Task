@@ -1,0 +1,64 @@
+---
+import Bubbles from './Bubbles.astro';
+const stack = ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity', 'Vercel'];
+---
+
+<section id="top" class="relative overflow-hidden px-6 pb-28 pt-20 sm:pt-28">
+  <div class="pointer-events-none absolute inset-0 -z-10 opacity-40">
+    <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-pool-500 blur-[120px]"></div>
+    <div class="absolute right-0 top-40 h-80 w-80 rounded-full bg-splash-500 blur-[140px]"></div>
+  </div>
+  <Bubbles count={18} />
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-24" aria-hidden="true">
+    <span class="ripple-ring absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full" />
+    <span
+      class="ripple-ring absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full"
+      style="animation-delay:1.4s"
+    />
+    <span
+      class="ripple-ring absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full"
+      style="animation-delay:2.8s"
+    />
+  </div>
+
+  <div class="mx-auto max-w-4xl text-center">
+    <p class="section-kicker">Læringsopplegg · Fontenehuset Bergen × Varegg Media</p>
+    <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-6xl">
+      Klar for stup? Bygg den nye<br />
+      <span class="bg-gradient-to-r from-splash-400 to-pool-300 bg-clip-text text-transparent">
+        Bergen Stupeklubb
+      </span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-pool-200">
+      Dagens side er en oppussingsklar Squarespace-side med ødelagte lenker, tunge bilder og en meny
+      som ikke vet hvem den snakker til. Dere skal bygge den på nytt — fra bunnen, med ordentlig kode,
+      og et ekte resultat dere kan vise fram etterpå. Vi gir hint, tips og lenker til dokumentasjon
+      hele veien — dere skal bare tørre å hoppe.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+      {stack.map((tech) => (
+        <span class="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-pool-100">
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="#modulene"
+        class="btn-splash rounded-full bg-splash-500 px-6 py-3 text-base font-semibold text-white shadow-xl shadow-splash-500/30 transition hover:scale-[1.03] hover:bg-splash-400"
+      >
+        Se de 7 modulene
+      </a>
+      <a
+        href="#problemene"
+        class="btn-splash rounded-full border border-white/20 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
+      >
+        Hva er galt i dag?
+      </a>
+    </div>
+
+    <p class="mt-8 text-xs uppercase tracking-[0.2em] text-pool-400">↓ 0 meter — overflaten</p>
+  </div>
+</section>

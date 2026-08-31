@@ -1,0 +1,61 @@
+---
+const problems = [
+  {
+    n: '01',
+    title: 'Lenkene stemmer ikke overens',
+    body: 'Menyen øverst og menyen nederst har ulike lenker. Én er til og med stavet feil (/pmelding i stedet for /pamelding), så lenken virker rett og slett ikke.',
+  },
+  {
+    n: '02',
+    title: 'Bildene er for tunge',
+    body: 'Bilder lastes inn i full størrelse uten å være tilpasset. Åpne siden og se etter i DevTools hvor mange MB som lastes bare for å vise forsiden.',
+  },
+  {
+    n: '03',
+    title: 'For mange knapper som roper samtidig',
+    body: '«Les mer om stupskolen», «Les mer om medlemskapene» og «Meld deg på her» ligger rett etter hverandre. Ingen skiller seg ut som den viktigste.',
+  },
+  {
+    n: '04',
+    title: 'Sponsorene ser rotete ut',
+    body: 'Noen sponsorer vises som logoer, én vises som ren tekst med hele URL-en limt inn. Ingen felles stil.',
+  },
+  {
+    n: '05',
+    title: 'Klubben kan ikke oppdatere siden selv',
+    body: 'Siden er laget i Squarespace, en ferdig mal. Skal noen legge ut en nyhetssak eller endre en trenerprofil, må de inn i et system som ikke er laget for strukturert innhold.',
+  },
+  {
+    n: '06',
+    title: 'Menyen blander helt ulike behov',
+    body: '«Bli stuper», «Klubbutstyr» og «Bergen Open» (en helt annen nettside) ligger side om side i samme meny — selv om besøkende har helt ulike ærend.',
+  },
+  {
+    n: '07',
+    title: 'Google forstår ikke helt hva siden handler om',
+    body: 'Søketreffet er generisk («Bergens eneste og beste stupeklubb»). Det mangler info som åpningstider eller arrangementer som kunne gjort siden mer synlig.',
+  },
+];
+---
+
+<section id="problemene" class="px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <p class="section-kicker text-center">Utgangspunktet</p>
+    <h2 class="section-heading mt-2 text-center">
+      Hva er galt med bergenstupeklubb.no i dag?
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-pool-300">
+      Sju konkrete problemer dere skal løse — hvert eneste ett blir en del av oppdraget lenger ned.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {problems.map((p) => (
+        <div class="card p-6 transition hover:border-splash-400/40 hover:bg-white/[0.06]">
+          <span class="font-display text-3xl font-bold text-white/20">{p.n}</span>
+          <h3 class="mt-3 font-display text-lg font-semibold text-white">{p.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-pool-300">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

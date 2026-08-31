@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import DepthRail from '../components/DepthRail.astro';
+import Hero from '../components/Hero.astro';
+import Mission from '../components/Mission.astro';
+import WhyPerfectTask from '../components/WhyPerfectTask.astro';
+import Problems from '../components/Problems.astro';
+import WhyNotWebflow from '../components/WhyNotWebflow.astro';
+import TechStack from '../components/TechStack.astro';
+import Modules from '../components/Modules.astro';
+import GeneralTips from '../components/GeneralTips.astro';
+import Delivery from '../components/Delivery.astro';
+import Footer from '../components/Footer.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import Bubbles from '../components/Bubbles.astro';
+---
+
+<Layout
+  title="Stupeklubb-oppdraget — bygg den nye Bergen Stupeklubb"
+  description="Et læringsopplegg der junior-devs bygger den nye Bergen Stupeklubb-nettsiden fra bunnen med Next.js, TypeScript, Tailwind og Sanity."
+>
+  <Nav />
+  <DepthRail />
+  <main>
+    <div class="relative bg-pool-950">
+      <Hero />
+      <Mission />
+      <WhyPerfectTask />
+    </div>
+
+    <WaveDivider bgClass="bg-pool-950" fillClass="fill-pool-900" />
+
+    <div class="relative bg-pool-900">
+      <Problems />
+      <WhyNotWebflow />
+    </div>
+
+    <WaveDivider bgClass="bg-pool-900" fillClass="fill-pool-800" flip />
+
+    <div class="relative overflow-hidden bg-pool-800">
+      <Bubbles count={10} />
+      <TechStack />
+      <Modules />
+    </div>
+
+    <WaveDivider bgClass="bg-pool-800" fillClass="fill-pool-950" />
+
+    <div class="relative overflow-hidden bg-pool-950">
+      <div class="pointer-events-none absolute inset-0 -z-10 opacity-30">
+        <div
+          class="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-splash-500 blur-[160px]"
+        >
+        </div>
+      </div>
+      <GeneralTips />
+      <Delivery />
+    </div>
+  </main>
+  <Footer />
+</Layout>

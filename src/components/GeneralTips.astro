@@ -1,0 +1,44 @@
+---
+const resources = [
+  { label: 'MDN Web Docs', desc: 'HTML, CSS og JavaScript forklart fra bunnen av.', href: 'https://developer.mozilla.org/en-US/' },
+  { label: 'Next.js Documentation', desc: 'Offisiell dokumentasjon — start med "Learn".', href: 'https://nextjs.org/docs' },
+  { label: 'TypeScript Handbook', desc: 'Typefeil, generics og typer forklart fra bunnen av.', href: 'https://www.typescriptlang.org/docs/handbook/intro.html' },
+  { label: 'Tailwind CSS Docs', desc: 'Søk på klassenavnet du lurer på, f.eks. "gap".', href: 'https://tailwindcss.com/docs' },
+  { label: 'Sanity Docs', desc: 'Skjema, GROQ og integrasjon med Next.js.', href: 'https://www.sanity.io/docs' },
+  { label: 'Vercel Docs', desc: 'Deploy, miljøvariabler og domener.', href: 'https://vercel.com/docs' },
+  { label: 'GitHub Docs', desc: 'Git-kommandoer og hvordan samarbeide i et repo.', href: 'https://docs.github.com/en' },
+  { label: 'web.dev', desc: 'Ytelse, tilgjengelighet og gode nettvaner fra Chrome-teamet.', href: 'https://web.dev/' },
+];
+---
+
+<section id="tips" class="px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <p class="section-kicker text-center">Sitter dere fast?</p>
+    <h2 class="section-heading mt-2 text-center">Tips & ressurser</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-pool-300">
+      Alle som jobber med kode googler og slår opp dokumentasjon hele tiden — her er stedene vi
+      selv ville sett først.
+    </p>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {resources.map((r) => (
+        <a
+          href={r.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card group p-5 transition hover:border-splash-400/40 hover:bg-white/[0.06]"
+        >
+          <p class="font-display text-sm font-semibold text-white group-hover:text-splash-400">{r.label}</p>
+          <p class="mt-1.5 text-xs leading-relaxed text-pool-300">{r.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="mx-auto mt-10 max-w-2xl rounded-xl border border-white/10 bg-white/[0.03] p-6 text-center">
+      <p class="text-sm text-pool-200">
+        <span class="font-semibold text-white">Kjøreregel:</span> stå fast i mer enn ~20 minutter på
+        samme problem? Spør en kollega eller en leder — det er sånn utviklere jobber i team.
+      </p>
+    </div>
+  </div>
+</section>

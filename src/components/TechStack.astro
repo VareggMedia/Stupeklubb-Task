@@ -1,0 +1,56 @@
+---
+const groups = [
+  {
+    title: 'Frontend',
+    items: ['Next.js (React-rammeverk)', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    title: 'Innhold / CMS',
+    items: ['Sanity — headless CMS for nyheter, trenere, arrangementer'],
+  },
+  {
+    title: 'Backend / API',
+    items: ['Next.js API-ruter (serverless functions)', 'Resend (e-post) eller Supabase (database)'],
+  },
+  {
+    title: 'Hosting / drift',
+    items: ['Vercel — deploy og hosting'],
+  },
+  {
+    title: 'Måling og kvalitet',
+    items: ['Lighthouse — ytelse, tilgjengelighet, SEO', 'Chrome DevTools — nettverksfane for bildestørrelse/lastetid'],
+  },
+  {
+    title: 'Versjonskontroll',
+    items: ['Git', 'GitHub'],
+  },
+];
+---
+
+<section id="teknologi" class="px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <p class="section-kicker text-center">Verktøykassa</p>
+    <h2 class="section-heading mt-2 text-center">Techstack</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-pool-300">
+      Ikke Webflow. Ekte kode, ekte verktøy — de samme dere finner i bransjen.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {groups.map((g) => (
+        <div class="card p-6">
+          <h3 class="font-display text-sm font-semibold uppercase tracking-wide text-splash-400">
+            {g.title}
+          </h3>
+          <ul class="mt-3 space-y-2 text-sm text-pool-200">
+            {g.items.map((item) => (
+              <li class="flex gap-2">
+                <span class="mt-1 text-pool-400">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

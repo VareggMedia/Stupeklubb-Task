@@ -1,0 +1,57 @@
+---
+const reasons = [
+  {
+    n: '01',
+    title: 'Ekte problem, ekte side',
+    body: 'Dette er ikke en oppdiktet skoleoppgave. bergenstupeklubb.no er en ekte, levende nettside med sju dokumenterte, konkrete problemer. Løsningen dere lager kan faktisk tas i bruk.',
+  },
+  {
+    n: '02',
+    title: 'Resultatene er målbare',
+    body: 'Ikke «jeg tror det ble bedre». Lighthouse-score, MB spart og sekunder raskere lastetid — før og etter. Tall dere kan vise fram, ikke bare påstander.',
+  },
+  {
+    n: '03',
+    title: 'Stacken bransjen faktisk bruker',
+    body: 'Next.js, TypeScript, Tailwind, Sanity og Vercel er blant de mest etterspurte verktøyene i frontend-jobber akkurat nå. Dette er ikke øvelse for øvelsens skyld.',
+  },
+  {
+    n: '04',
+    title: 'Stigende vanskelighetsgrad',
+    body: 'Modulene er lagt opp som et dykk: dere starter i grunt vann og jobber dere gradvis dypere mot CMS og backend — akkurat idet dere er klare for det.',
+  },
+  {
+    n: '05',
+    title: 'Ekte portfolio-stoff',
+    body: 'Når dere er ferdig har dere ikke bare «gjort en oppgave» — dere har et deployet, målbart prosjekt dere kan vise fram på CV-en og i jobbintervjuer.',
+  },
+  {
+    n: '06',
+    title: 'Bygget for å læres bort',
+    body: 'Hver modul har hint, dokumentasjon og en tydelig leveranse. Dere skal aldri stå helt fast — bare dykke litt dypere for hver modul dere fullfører.',
+  },
+];
+---
+
+<section id="hvorfor" class="px-6 py-16">
+  <div class="mx-auto max-w-6xl">
+    <p class="section-kicker text-center">Hvorfor akkurat dette oppdraget?</p>
+    <h2 class="section-heading mt-2 text-center">Et perfekt dykk for å lære på ordentlig</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-pool-300">
+      Dette caset er ikke tilfeldig valgt som øvingsoppgave. Her er hvorfor det gir maksimalt med reell
+      erfaring — av alle prosjekter dere kunne øvd på.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        reasons.map((r) => (
+          <div class="card p-6 transition hover:border-pool-400/40 hover:bg-white/[0.06]">
+            <span class="font-display text-3xl font-bold text-white/20">{r.n}</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-white">{r.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-pool-300">{r.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+import DiveMark from './DiveMark.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/10 px-6 py-10">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-2 text-center text-sm text-pool-400">
+    <p class="flex items-center gap-2">
+      <DiveMark class="h-4 w-4 text-pool-400" />
+      Stupeklubb-oppdraget · Læringsopplegg utviklet av Fontenehuset Bergen og Varegg Media {year}
+    </p>
+    <p>Bygget som en Astro-landingside for prosjektbrief og fremdrift — selve klubbsiden bygges i Next.js.</p>
+  </div>
+</footer>
